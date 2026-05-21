@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <script src="https://cdn.jsdelivr.net/gh/solual/-/ads/link.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Launcher</title>
+    <link rel="stylesheet" href="/css/mc.css">  
+</head>
+<body>
+    <div class="launcher">
+        <div class="header">
+            <h1>Minecraft Launcher</h1>
+        </div>
+        <div class="game-content">
+            <img src="/assets/mcbanner.webp">
+            <button class="play-button" id="playButton">PLAY</button>
+        </div>
+        <div class="selectors-container">
+            <div class="version-selector">
+                <label for="versions">Select Version:</label>
+                <select id="versions">
+                    <option value="1.12.2">Latest (1.12.2)</option>
+                    <option value="1.8.8">1.8.8</option>
+                </select>
+            </div>
+            <div class="devices">
+                <label for="devices">Device:</label>
+                <select id="devices">
+                    <option value="autoselect">Autoselect</option>
+                    <option value="pc">PC/Chromebook</option>
+                    <option value="mobile">Mobile</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const playButton = document.getElementById("playButton");
+        const versionSelect = document.getElementById("versions");
+        const deviceSelect = document.getElementById("devices");
+
+        function updateURL() {
+            const version = versionSelect.value;
+            const device = deviceSelect.value;
+
+            let url = "/";
+
+            if (device === "pc") {
+                if (version === "1.8.8") {
+                    url += "gxmez/eagler/EaglercraftX_1.8_Web/index.html";
+                } else {
+                    url += "gxmez/eagler/1.12.2/index.html";
+                }
+            } 
+            else if (device === "mobile") {
+                if (version === "1.8.8") {
+                    url += "gxmez/eagler/mcmobile/index.html";
+                } else {
+                    url += "gxmez/eagler/mcmobile/index.html";
+                }
+            }
+
+            playButton.onclick = function() {
+                window.location.href = url;
+            };
+        }
+
+        versionSelect.addEventListener("change", updateURL);
+        deviceSelect.addEventListener("change", updateURL);
+
+        window.onload = function() {
+            if (deviceSelect.value === "autoselect") {
+                if (window.innerWidth <= 800) {
+                    deviceSelect.value = "mobile";
+                    if (versionSelect.value === "1.12.2") {
+                        versionSelect.value = "1.8.8";
+                    }
+                } else {
+                    deviceSelect.value = "pc";
+                }
+            }
+            updateURL();
+        };
+
+        deviceSelect.addEventListener("change", function() {
+            if (deviceSelect.value === "mobile" && versionSelect.value === "1.12.2") {
+                versionSelect.value = "1.8.8";
+                updateURL();
+            }
+        });
+
+        versionSelect.addEventListener("change", function() {
+            if (deviceSelect.value === "mobile" && versionSelect.value === "1.12.2") {
+                versionSelect.value = "1.8.8";
+                updateURL();
+            }
+        });
+
+        updateURL();
+    </script>
+</body>
+</html>
