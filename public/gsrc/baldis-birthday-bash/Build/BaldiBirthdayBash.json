@@ -1,0 +1,13 @@
+{
+"companyName": "Bromine Network",
+"productName": "Baldi's Basics 1 Year Birthday Bash",
+"dataUrl": "https://raw.githubusercontent.com/unblockings/ports/main/baldis-birthday-bash/Build/BaldiBirthdayBash.data.unityweb",
+"wasmCodeUrl": "BaldiBirthdayBash.wasm.code.unityweb",
+"wasmFrameworkUrl": "BaldiBirthdayBash.wasm.framework.unityweb",
+"TOTAL_MEMORY": 33554432,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#000000",
+"cacheControl": {"default": "must-revalidate"}
+}
