@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Karlson</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+      }
+      .webgl-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      #unityContainer {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .footer {
+        display: none !important;
+      }
+    </style>
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/karlsonworking.json", {
+        onProgress: UnityProgress,
+        Module: {
+          onRuntimeInitialized: function() {
+            // Auto fullscreen on load
+            if (unityInstance.SetFullscreen) {
+              unityInstance.SetFullscreen(1);
+            }
+            
+            // Handle window resizing
+            function onResize() {
+              var container = document.getElementById('unityContainer');
+              container.style.width = window.innerWidth + 'px';
+              container.style.height = window.innerHeight + 'px';
+            }
+            
+            window.addEventListener('resize', onResize);
+            onResize();
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen"></div>
+        <div class="title">Karlson</div>
+      </div>
+    </div>
+  </body>
+</html>

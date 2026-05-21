@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Milkman Karlson</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+      }
+      #unityContainer {
+        position: absolute;
+        width: 100% !important;
+        height: 100% !important;
+        top: 0;
+        left: 0;
+      }
+    </style>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/MILKMAN.json", {
+        Module: {
+          onRuntimeInitialized: function() {
+            // Auto fullscreen on load
+            if (unityInstance.SetFullscreen) {
+              unityInstance.SetFullscreen(1);
+            }
+            
+            // Handle window resizing
+            function onResize() {
+              var container = document.getElementById('unityContainer');
+              container.style.width = window.innerWidth + 'px';
+              container.style.height = window.innerHeight + 'px';
+            }
+            
+            window.addEventListener('resize', onResize);
+            onResize();
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="unityContainer"></div>
+  </body>
+</html>
