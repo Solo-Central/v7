@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | R.E.P.O</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+      }
+      #unity-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      #unity-canvas {
+        width: 100%;
+        height: 100%;
+        background: #000;
+      }
+      #unity-loading-bar, #unity-footer, #unity-warning {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="unity-container">
+      <canvas id="unity-canvas" tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <div id="unity-warning"></div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">R.E.P.O</div>
+      </div>
+    </div>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var warningBanner = document.querySelector("#unity-warning");
+
+      function unityShowBanner(msg, type) {
+        // Disable all banners/warnings
+        return;
+      }
+
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/Reps.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/Reps.data",
+        frameworkUrl: buildUrl + "/Reps.framework.js",
+        codeUrl: buildUrl + "/Reps.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Stupid Game",
+        productName: "R.E.P.O",
+        productVersion: "0.1",
+        showBanner: unityShowBanner,
+      };
+
+      // Mobile device detection and setup
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+      }
+
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          // Automatically enter fullscreen when loaded
+          if (unityInstance.SetFullscreen) {
+            unityInstance.SetFullscreen(1);
+          }
+          
+          // Resize handler to keep canvas filling screen
+          function onResize() {
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+          }
+          
+          window.addEventListener('resize', onResize);
+          onResize();
+        }).catch((message) => {
+          console.error(message);
+        });
+      };
+
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

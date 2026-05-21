@@ -1,0 +1,15 @@
+{
+"companyName": "gigafella inc",
+"productName": "T cubed",
+"productVersion": "6.7",
+"dataUrl": "tungtungbog.data.unityweb",
+"wasmCodeUrl": "tungtungbog.wasm.code.unityweb",
+"wasmFrameworkUrl": "tungtungbog.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#121E1E",
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.29f1"
+}
