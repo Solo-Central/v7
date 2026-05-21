@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Apps | Solo Central</title>
+		<link rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		<div id="particles-js"></div>
+		<div class="content">
+			<h1>apps</h1>
+			<input class="search-bar" id="search" type="text" placeholder="search apps..." autocomplete="off" spellcheck="false" />
+			<div class="grid" id="a-grid"></div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+		<script src="particles.js"></script>
+		<script>
+		(function () {
+			const grid = document.getElementById('a-grid');
+			const search = document.getElementById('search');
+			let apps = [];
+
+			function render(list) {
+				grid.innerHTML = '';
+				if (!list.length) {
+					grid.innerHTML = '<div class="empty">no apps found</div>';
+					return;
+				}
+				list.forEach(function (a) {
+					const card = document.createElement('div');
+					card.className = 'card';
+					const img = document.createElement('img');
+					img.src = a.img;
+					img.alt = a.alt;
+					img.loading = 'lazy';
+					img.onerror = function () { this.src = 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 180 180%27%3E%3Crect width=%27180%27 height=%27180%27 fill=%27%230d0d0d%27/%3E%3C/svg%3E'; this.onerror = null; };
+					const title = document.createElement('div');
+					title.className = 'card-title';
+					title.textContent = a.alt;
+					card.appendChild(img);
+					card.appendChild(title);
+					card.addEventListener('click', function () {
+						window.parent.postMessage({ type: 'navigate', url: a.url }, '*');
+					});
+					grid.appendChild(card);
+				});
+			}
+
+			search.addEventListener('input', function () {
+				const q = search.value.trim().toLowerCase();
+				render(q ? apps.filter(function (a) { return a.alt.toLowerCase().includes(q); }) : apps);
+			});
+
+			fetch('tstststststststststststststststststststststststs.json')
+				.then(function (r) { return r.json(); })
+				.then(function (data) { apps = data; render(apps); })
+				.catch(function () { grid.innerHTML = '<div class="empty">failed to load apps</div>'; });
+
+			window.parent.postMessage({ type: 'title', value: 'Apps | Solo Central' }, '*');
+		})();
+		</script>
+	</body>
+</html>

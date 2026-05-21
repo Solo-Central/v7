@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Games | Solo Central</title>
+		<link rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		<div id="particles-js"></div>
+		<div class="content">
+			<h1>games</h1>
+			<input class="search-bar" id="search" type="text" placeholder="search games..." autocomplete="off" spellcheck="false" />
+			<div class="grid" id="g-grid"></div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+		<script src="particles.js"></script>
+		<script>
+		(function () {
+			const grid = document.getElementById('g-grid');
+			const search = document.getElementById('search');
+			let games = [];
+
+			function render(list) {
+				grid.innerHTML = '';
+				if (!list.length) {
+					grid.innerHTML = '<div class="empty">no games found</div>';
+					return;
+				}
+				list.forEach(function (g) {
+					const card = document.createElement('div');
+					card.className = 'card';
+					const img = document.createElement('img');
+					img.src = g.img;
+					img.alt = g.alt;
+					img.loading = 'lazy';
+					img.onerror = function () { this.src = 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 180 180%27%3E%3Crect width=%27180%27 height=%27180%27 fill=%27%230d0d0d%27/%3E%3C/svg%3E'; this.onerror = null; };
+					const title = document.createElement('div');
+					title.className = 'card-title';
+					title.textContent = g.alt;
+					card.appendChild(img);
+					card.appendChild(title);
+					card.addEventListener('click', function () {
+						window.parent.postMessage({ type: 'navigate', url: g.url }, '*');
+					});
+					grid.appendChild(card);
+				});
+			}
+
+			search.addEventListener('input', function () {
+				const q = search.value.trim().toLowerCase();
+				render(q ? games.filter(function (g) { return g.alt.toLowerCase().includes(q); }) : games);
+			});
+
+			fetch('gg.json')
+				.then(function (r) { return r.json(); })
+				.then(function (data) { games = data; render(games); })
+				.catch(function () { grid.innerHTML = '<div class="empty">failed to load games</div>'; });
+
+			window.parent.postMessage({ type: 'title', value: 'Games | Solo Central' }, '*');
+		})();
+		</script>
+	</body>
+</html>

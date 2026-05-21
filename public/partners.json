@@ -1,0 +1,17 @@
+[
+    {
+        "url": "/scramjet/https://ajh.college",
+        "img": "/books/ajh.webp",
+        "alt": "AJH's Vault"
+    },
+    {
+        "url": "/scramjet/https://korona.lat",
+        "img": "/books/korona.webp",
+        "alt": "Korona"
+    }, 
+    {
+        "url": "/scramjet/https://practice.rest",
+        "img": "/books/practice.webp",
+        "alt": "Practice"
+    }          
+]

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Home | Solo Central</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+		<style>
+			* { margin: 0; padding: 0; box-sizing: border-box; }
+			body {
+				background: #000;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				overflow: hidden;
+				font-family: 'Parkinsans', sans-serif;
+			}
+			#particles-js {
+				position: fixed;
+				inset: 0;
+				z-index: 0;
+			}
+			.hero {
+				position: relative;
+				z-index: 1;
+				text-align: center;
+				user-select: none;
+			}
+			.hero h1 {
+				color: #f9f9fa;
+				font-size: 3.5rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+			}
+			.hero .version {
+				color: #b1b1b3;
+				font-size: 1rem;
+				font-weight: 300;
+				margin-top: 0.4rem;
+			}
+			.status {
+				position: fixed;
+				bottom: 1.5rem;
+				left: 50%;
+				transform: translateX(-50%);
+				z-index: 1;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				color: #b1b1b3;
+				font-size: 0.875rem;
+				white-space: nowrap;
+			}
+			.bullet { color: #1a56db; }
+		</style>
+	</head>
+	<body>
+		<div id="particles-js"></div>
+		<div class="hero">
+			<h1>Welcome to Solo Central</h1>
+			<p class="version">version 7.0.0</p>
+		</div>
+		<div class="status">
+			<span id="clock"></span>
+			<span class="bullet">•</span>
+			<span id="temp">--</span>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+		<script src="particles.js"></script>
+		<script>
+		(function () {
+			function tick() {
+				const now = new Date();
+				document.getElementById('clock').textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+			}
+			tick();
+			setInterval(tick, 1000);
+
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function (pos) {
+					const lat = pos.coords.latitude;
+					const lon = pos.coords.longitude;
+					fetch('https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current_weather=true&temperature_unit=fahrenheit')
+						.then(function (r) { return r.json(); })
+						.then(function (data) {
+							document.getElementById('temp').textContent = Math.round(data.current_weather.temperature) + '°F';
+						})
+						.catch(function () {});
+				}, function () {});
+			}
+
+			window.parent.postMessage({ type: 'title', value: 'solo central v7' }, '*');
+		})();
+		</script>
+	</body>
+</html>
