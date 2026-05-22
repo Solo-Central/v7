@@ -12,10 +12,11 @@
 		books: '/books.html',
 		credits: '/credits.html',
 		partners: '/partners.html',
+		privacy: '/privacy.html',
 	};
-	const SOLO_TO_PAGE = { home: 'home', games: 'docs', apps: 'books', credits: 'credits', partners: 'partners' };
-	const PAGE_TO_SOLO = { home: 'home', docs: 'games', books: 'apps', credits: 'credits', partners: 'partners' };
-	const PAGE_NAMES = { home: 'Home', docs: 'Games', books: 'Apps', credits: 'Credits', partners: 'Partners' };
+	const SOLO_TO_PAGE = { home: 'home', games: 'docs', apps: 'books', credits: 'credits', partners: 'partners', privacy: 'privacy' };
+	const PAGE_TO_SOLO = { home: 'home', docs: 'games', books: 'apps', credits: 'credits', partners: 'partners', privacy: 'privacy' };
+	const PAGE_NAMES = { home: 'Home', docs: 'Games', books: 'Apps', credits: 'Credits', partners: 'Partners', privacy: 'Privacy' };
 
 	let sjFrame = null;
 	let proxyActive = false;
