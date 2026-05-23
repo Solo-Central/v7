@@ -1,15 +1,8 @@
 "use strict";
 const stockSW = "./sw.js";
 
-/**
- * List of hostnames that are allowed to run serviceworkers on http://
- */
 const swAllowedHostnames = ["localhost", "127.0.0.1"];
 
-/**
- * Global util
- * Used in 404.html and index.html
- */
 async function registerSW() {
 	if (!navigator.serviceWorker) {
 		if (

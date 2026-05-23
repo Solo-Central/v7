@@ -22,7 +22,6 @@
 	let proxyActive = false;
 	let currentPage = 'home';
 
-	// ── Tab state ──
 	let tabs = [{ id: 1, title: 'Home', pageKey: 'home', proxyUrl: null, localPath: null }];
 	let activeTabId = 1;
 	let nextTabId = 2;
@@ -43,8 +42,6 @@
 		const wispUrl = (location.protocol === 'https:' ? 'wss' : 'ws') + '://' + location.host + '/wisp/';
 		try { await conn.setTransport('/libcurl/index.mjs', [{ websocket: wispUrl }]); } catch (e) {}
 	})();
-
-	// ── Helpers ──
 
 	function setActive(page) {
 		navBtns.forEach(el => el.classList.toggle('active', el.dataset.page === page));
@@ -67,8 +64,6 @@
 		if (tab) Object.assign(tab, patch);
 		renderTabs();
 	}
-
-	// ── Tab UI ──
 
 	function renderTabs() {
 		tabsEl.innerHTML = '';
@@ -142,8 +137,6 @@
 		goToPage('home');
 	}
 
-	// ── Navigation ──
-
 	function activateProxy() {
 		if (!sjFrame) {
 			sjFrame = scramjet.createFrame();
@@ -189,8 +182,6 @@
 		sjFrame.go(url);
 		updateActiveTab({ pageKey: null, proxyUrl: url, localPath: null, title: url });
 	}
-
-	// ── Event listeners ──
 
 	navBtns.forEach(el => el.addEventListener('click', () => goToPage(el.dataset.page)));
 

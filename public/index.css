@@ -6,9 +6,9 @@
 	--bg-hover: #1d1d1d;
 	--text-main: #f9f9fa;
 	--text-muted: #b1b1b3;
-	--accent-main: #1a56db;
+	--accent-main: #ff4da6;
 	--accent-alt: #1b1b1b;
-	--border-main: #1a56db;
+	--border-main: #e6398d;
 	--top-h: 52px;
 	--tab-h: 2.5rem;
 	--sb-w: 76px;
@@ -55,7 +55,6 @@ a:hover {
 	color: var(--text-main);
 }
 
-/* ── Tab bar ── */
 #tab-bar {
 	position: fixed;
 	top: 0;
@@ -171,7 +170,6 @@ a:hover {
 
 .tabs .new-tab-btn:hover { color: var(--text-main); }
 
-/* ── Top bar (full width) ── */
 .top-bar {
 	position: fixed;
 	top: var(--tab-h);
@@ -188,7 +186,6 @@ a:hover {
 	flex-shrink: 0;
 }
 
-/* Back / forward / refresh */
 .nav-controls,
 .top-right {
 	display: flex;
@@ -212,7 +209,6 @@ a:hover {
 	background: var(--bg-hover);
 }
 
-/* Gradient URL bar */
 .url-form {
 	flex: 1;
 	min-width: 0;
@@ -254,7 +250,6 @@ a:hover {
 	color: var(--text-muted);
 }
 
-/* ── Sidebar (below top bar) ── */
 main {
 	display: flex;
 	flex: 1;
@@ -317,7 +312,6 @@ main {
 	opacity: 0.6;
 }
 
-/* ── Content area ── */
 .content-area {
 	flex: 1;
 	position: relative;
@@ -334,7 +328,6 @@ main {
 	background: var(--bg-main);
 }
 
-/* ── Credits page (iframe content) ── */
 .credits-page {
 	background: var(--bg-main);
 	color: var(--text-main);
