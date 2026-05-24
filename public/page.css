@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; font-weight: 700; }
 
 #particles-js {
 	position: fixed;
@@ -11,15 +11,22 @@
 .content {
 	position: relative;
 	z-index: 1;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 body {
 	background: #000;
 	color: #f9f9fa;
-	font-family: 'Inter', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 	min-height: 100vh;
 	padding: 1.5rem;
 	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 h1 {
@@ -29,6 +36,7 @@ h1 {
 	margin-bottom: 1.5rem;
 	letter-spacing: 0.04em;
 	text-transform: lowercase;
+	text-align: center;
 }
 
 .search-bar {
@@ -39,7 +47,7 @@ h1 {
 	border: 1px solid #e6398d;
 	border-radius: 0.5rem;
 	color: #f9f9fa;
-	font-family: 'Inter', sans-serif;
+	font-family: 'Quicksand', sans-serif;
 	font-size: 0.875rem;
 	padding: 0.5rem 0.875rem;
 	outline: none;
@@ -48,43 +56,49 @@ h1 {
 }
 
 .search-bar::placeholder { color: #b1b1b3; }
-.search-bar:focus { box-shadow: 0 0 0 2px rgba(26, 86, 219, 0.35); }
+.search-bar:focus { box-shadow: 0 0 0 2px rgba(230, 57, 141, 0.35); }
 
 .grid {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 8px;
+	width: 100%;
 }
 
 .card {
 	width: 180px;
+	height: 180px;
 	border-radius: 10px;
 	overflow: hidden;
 	cursor: pointer;
-	background: #0d0d0d;
-	border: 1px solid transparent;
+	position: relative;
+	border: 4px solid transparent;
 	transition: border-color 0.2s, transform 0.15s;
 	user-select: none;
+	background: #111;
 }
 
 .card:hover {
 	border-color: #e6398d;
-	transform: translateY(-2px);
 }
 
 .card img {
-	width: 180px;
-	height: 180px;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
 	display: block;
-	background: #111;
 }
 
 .card-title {
-	padding: 0.5rem 0.625rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1.75rem 0.625rem 0.5rem;
+	background: linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
 	font-size: 0.75rem;
-	color: #b1b1b3;
+	color: #fff;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
