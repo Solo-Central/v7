@@ -1,108 +1,85 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M2Y60WTE1D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-M2Y60WTE1D');
-</script><!doctype html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6996743954437917"
-     crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/gh/solual/-/ads/link.js"/></script>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-        <link href="/stuff/v7.png" rel="icon">
-        <title>Classes - Solo Central</title>
-   <meta name="title" content="Solo Central V7" />
-    <meta name="description" content="Solo Central is one of the best websites for people to play games online." />
-    <meta name="keywords" content="unblocked games, unblocked, proxy, pr0xy, unbl0cked games, games, game, fnaf, minecraft, pr0xy, games unblocked, unbl0cked, fortnite, sizzle central, Solo Central, szvy, Solo Central games, savoy central, savoy, central games, savoy central games, unblocked gxmes, fun games, educational games, education, classroom6x, math games, unblocked games google sites, google sites, google sites unblocked games, html unblocked games, github unblocked games, school unblocked games, github games, school games, html games, free games, online games, coolfunscience, science games, math games, google sites, google sites games, games google sites, sitesgoogle games, games sitesgoogle, githubio games, github io games, szvy github games, szvycentral.pages.dev, szvycentral.netlify.app, szvycentral.vercel.app, tidym.vercel.app, subtoszvy, mathplayground, games unblocked, youtube unblocked, tiktok unblocked, youtube, tiktok, how to play unblocked games at school, games, online games, fortnite games unblocked, nowgg unblocked, nowgg alt links, nowgg, geforce now unblocked, geforcenow, geforce unblocked, geforcenow unblocked, geforce unblocked, play games, unblocked games for school, skibidi szvy">
-    <meta name="theme-color" content="#0f0f0f">
-    <meta name="msapplication-TileColor" content="#0f0f0f">
-    <meta property="image" content="/stuff/logo-text.png">
-    <meta property="og:image" content="/stuff/logo-text.png">
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
-			rel="stylesheet"
-		/>
-
-		<script src="/scram/scramjet.all.js"></script>
-		<script src="/baremux/index.js"></script>
-		<script src="search.js"></script>
-
-		<link rel="stylesheet" href="stuff/scicons.css" />
-		<link rel="stylesheet" href="index.css" />
-		<script src="register-sw.js" defer></script>
-	</head>
-
-	<body>
-		<div id="tab-bar">
-			<div id="tabs-wrapper">
-				<ul class="tabs" id="tabs"></ul>
-			</div>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Classroom</title>
+	<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@700&display=swap" rel="stylesheet" />
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		html, body {
+			width: 100%;
+			height: 100%;
+			background: #000;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 1.5rem;
+		}
+		.tagline {
+			color: #fff;
+			font-family: 'Parkinsans', sans-serif;
+			font-weight: 700;
+			font-size: 2rem;
+			user-select: none;
+			letter-spacing: 0.01em;
+		}
+		.buttons {
+			display: flex;
+			gap: 2rem;
+			align-items: center;
+		}
+		.img-wrap { cursor: pointer; }
+		.img-wrap {
+			position: relative;
+			width: 220px;
+			max-width: 60vw;
+			transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+		.img-wrap:hover {
+			transform: scale(1.08) rotate(-4deg);
+		}
+		.img-wrap img {
+			width: 100%;
+			display: block;
+			user-select: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: opacity 0.35s ease;
+		}
+		.img-wrap img.normal { opacity: 1; }
+		.img-wrap img.hovered { opacity: 0; }
+		.img-wrap:hover img.normal { opacity: 0; }
+		.img-wrap:hover img.hovered { opacity: 1; }
+		.img-wrap img:last-child { position: relative; }
+	</style>
+</head>
+<body>
+	<p class="tagline">discord.gg/unblockings for more links!</p>
+	<div class="buttons">
+		<div class="img-wrap">
+			<img class="hovered" src="/stuff/hovered.png" alt="" />
+			<img class="normal" src="/stuff/play.png" alt="" />
 		</div>
-		<header class="top-bar">
-			<div class="nav-controls">
-				<button class="nav-ctrl" id="btn-back" title="Back">
-					<i class="sci sci-arrow-left"></i>
-				</button>
-				<button class="nav-ctrl" id="btn-fwd" title="Forward">
-					<i class="sci sci-arrow-right"></i>
-				</button>
-				<button class="nav-ctrl" id="btn-refresh" title="Refresh">
-					<i class="sci sci-refresh"></i>
-				</button>
-			</div>
+		<div class="img-wrap">
+			<img class="hovered" src="/stuff/joinhovered.png" alt="" />
+			<img class="normal" src="/stuff/join.png" alt="" />
+		</div>
+	</div>
+	<script>
+		var btns = document.querySelectorAll('.img-wrap');
 
-			<form id="nav-form" class="url-form">
-				<div class="url-wrap">
-					<input
-						id="url-bar"
-						type="text"
-						placeholder="Search or enter address"
-						autocomplete="off"
-						spellcheck="false"
-					/>
-				</div>
-		</header>
+		btns[0].addEventListener('click', function () {
+			var w = window.open();
+			w.document.write('<style>*{margin:0;padding:0;overflow:hidden}iframe{position:fixed;inset:0;width:100%;height:100%;border:none}</style><iframe src="' + location.origin + '/brs.html"></iframe>');
+			w.document.close();
+		});
 
-		<main>
-			<nav class="sidebar">
-				<button class="nav-icon active" data-page="home" title="Home">
-					<i class="sci sci-home"></i>
-				</button>
-				<button class="nav-icon" data-page="docs" title="Games">
-					<i class="sci sci-gamepad"></i>
-				</button>
-				<button class="nav-icon" data-page="books" title="Apps">
-					<i class="sci sci-grid"></i>
-				</button>
-				<button class="nav-icon" data-page="partners" title="Partners">
-					<i class="sci sci-handshake"></i>
-				</button>
-				<div class="nav-sep"></div>
-				<a
-					class="nav-icon"
-					href="https://github.com/Solo-Central/v7"
-					target="_blank"
-					title="GitHub"
-				><i class="sci sci-github"></i></a>
-								<button class="nav-icon" data-page="privacy" title="Privacy Policy">
-					<i class="sci sci-shield"></i>
-				</button>
-				<button class="nav-icon" data-page="credits" title="Credits">
-					<i class="sci sci-users"></i>
-				</button>
-			</nav>
-
-			<div class="content-area">
-				<iframe id="content-frame" src="/home.html"></iframe>
-			</div>
-		</main>
-
-		<script src="central.js" defer></script>
-	</body>
+		btns[1].addEventListener('click', function () {
+			window.open('https://discord.gg/unblockings', '_blank');
+		});
+	</script>
+</body>
 </html>
