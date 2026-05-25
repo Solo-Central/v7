@@ -141,6 +141,16 @@
 		if (!sjFrame) {
 			sjFrame = scramjet.createFrame();
 			sjFrame.frame.id = 'sj-frame';
+			sjFrame.frame.addEventListener('load', () => {
+				if (!proxyActive) return;
+				try {
+					const href = sjFrame.frame.contentWindow.location.href;
+					const scramPrefix = location.origin + '/scramjet/';
+					const real = href.startsWith(scramPrefix) ? decodeURIComponent(href.slice(scramPrefix.length)) : href;
+					setUrlDisplay(real);
+					updateActiveTab({ proxyUrl: real, title: real });
+				} catch (e) {}
+			});
 			contentArea.appendChild(sjFrame.frame);
 		}
 		sjFrame.frame.style.display = '';
@@ -154,6 +164,7 @@
 		contentFrame.style.display = '';
 		contentFrame.src = path;
 		proxyActive = false;
+		currentPage = null;
 		setActive(null);
 		setUrlDisplay(location.origin + path);
 	}
@@ -220,7 +231,15 @@
 
 	contentFrame.addEventListener('load', () => {
 		if (proxyActive) return;
-		setUrlDisplay(soloUrl(currentPage));
+		if (currentPage) {
+			setUrlDisplay(soloUrl(currentPage));
+		} else {
+			try {
+				setUrlDisplay(contentFrame.contentWindow.location.href);
+			} catch (e) {
+				setUrlDisplay(contentFrame.src);
+			}
+		}
 	});
 
 	window.addEventListener('message', (e) => {

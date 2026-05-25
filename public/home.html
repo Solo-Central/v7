@@ -26,9 +26,6 @@
 				position: relative;
 				z-index: 1;
 				flex-shrink: 0;
-				width: 100%;
-				display: flex;
-				justify-content: center;
 			}
 			.banner img {
 				height: auto;
@@ -37,6 +34,14 @@
 				user-select: none;
 				max-width: 400px;
 			}
+			.ad-side {
+				position: fixed;
+				top: 50%;
+				transform: translateY(-50%);
+				z-index: 2;
+			}
+			.ad-side.left { left: 8px; }
+			.ad-side.right { right: 8px; }
 .status {
 				position: relative;
 				z-index: 1;
@@ -56,8 +61,16 @@
 	</head>
 	<body>
 		<div id="particles-js"></div>
+		<div class="ad-side left">
+			<script>atOptions={'key':'7ad5e09cb640f0a2685552f84441122a','format':'iframe','height':600,'width':160,'params':{}};</script>
+			<script src="https://throbbingimmensely.com/7ad5e09cb640f0a2685552f84441122a/invoke.js"></script>
+		</div>
 		<div class="banner">
 			<img src="/stuff/logo-text.png" alt="" />
+		</div>
+		<div class="ad-side right">
+			<script>atOptions={'key':'7ad5e09cb640f0a2685552f84441122a','format':'iframe','height':600,'width':160,'params':{}};</script>
+			<script src="https://throbbingimmensely.com/7ad5e09cb640f0a2685552f84441122a/invoke.js"></script>
 		</div>
 		<div class="status">
 			<span id="clock"></span>
