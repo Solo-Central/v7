@@ -13,5 +13,10 @@
         "url": "/scramjet/https://practice.rest",
         "img": "/books/practice.webp",
         "alt": "Practice"
-    }          
+    },
+    {
+        "url": "/scramjet/https://zinkos.space",
+        "img": "/books/zinko.webp",
+        "alt": "Zinko's Space"
+    }  
 ]
