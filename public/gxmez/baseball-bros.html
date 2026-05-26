@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://cdn.jsdelivr.net/gh/TuShenmei-xiannv/BaseballBrosGame@main/"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4A90B9">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- 性能优化相关meta标签 -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    
+    <!-- 关键资源预加载 -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="/images/screenshot.jpg" as="image" fetchpriority="high">
+    
+    <!-- 预连接关键域名 -->
+    <link rel="preconnect" href="https://baseballbros.io" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    
+    <!-- DNS预获取 -->
+    <link rel="dns-prefetch" href="https://baseballbros.io">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#4A90B9">
+    <meta name="msapplication-TileColor" content="#4A90B9">
+    
+    <!-- 添加预加载 -->
+    <link rel="preload" href="https://nealfun.app/game/baseball-bros/" as="document">
+
+    <!-- 社交媒体元标签 -->
+    <meta property="og:site_name" content="Baseball Bros Unblocked">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Baseball Bros 2025 | Play Free Browser Baseball Game Online">
+    <meta property="og:image:alt" content="Baseball Bros gameplay screenshot">
+    <meta property="og:description" content="Play Baseball Bros (2025) - The top free browser baseball game! No downloads needed. Master batting techniques, multiplayer modes & play on any device. Perfect for quick games!">
+    <meta property="og:url" content="https://baseballbrosgame.online/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Baseball Bros 2025 | Play Free Browser Baseball Game Online">
+    <meta name="twitter:description" content="Play Baseball Bros (2025) - The top free browser baseball game! No downloads needed. Master batting techniques, multiplayer modes & play on any device. Perfect for quick games!">
+    <meta name="twitter:image" content="https://baseballbrosgame.online/images/screenshot.jpg">
+    <meta name="twitter:site" content="@baseballbros">
+
+    <title>Baseball Bros 2025 | Play Free Browser Baseball Game Online</title>
+    <meta name="description" content="Play Baseball Bros (2025) - The top free browser baseball game! No downloads needed. Master batting techniques, multiplayer modes & play on any device. Perfect for quick games!">
+    <link rel="canonical" href="https://baseballbrosgame.online/" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-23PVZWH5ZW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-23PVZWH5ZW');
+    </script>
+
+    <!-- 添加结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Baseball Bros Unblocked",
+      "description": "Play the classic Baseball Bros game unblocked with global leaderboards. Fast-paced action perfect for quick sessions at school or work.",
+      "url": "https://baseballbrosgame.online/",
+      "image": "https://baseballbrosgame.online/images/screenshot.jpg",
+      "gamePlatform": "Web",
+      "genre": "Sports",
+      "keywords": "baseball game unblocked, how to play baseball game, unblocked baseball io",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "ratingCount": "1500"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "potentialAction": {
+        "@type": "PlayAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://baseballbrosgame.online/",
+          "actionPlatform": ["http://schema.org/DesktopWebPlatform"]
+        }
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            blue: '#007AFF',
+                            red: '#FF3B30',
+                            green: '#34C759',
+                            purple: '#AF52DE',
+                            yellow: '#FFCC00',
+                            orange: '#FF9500',
+                            dark: '#1C1C1E',
+                            gray: '#8E8E93',
+                            lightgray: '#F2F2F7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- 性能优化：延迟加载 -->
+    <script>
+        // 延迟加载iframe
+        document.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.querySelector('iframe[data-src]');
+            if (iframe) {
+                // 2秒后加载iframe
+                setTimeout(() => {
+                    iframe.src = iframe.dataset.src;
+                }, 2000);
+            }
+
+            // 延迟加载图片
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(img => imageObserver.observe(img));
+            } else {
+                // 降级处理：直接加载图片
+                lazyImages.forEach(img => img.src = img.dataset.src);
+            }
+        });
+
+        // 移动端检测
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        // 移动端优化
+        if (isMobile) {
+            // 添加移动端专用样式
+            document.documentElement.classList.add('is-mobile');
+            
+            // 优化触摸事件
+            document.addEventListener('touchstart', function() {}, {passive: true});
+            
+            // 移动端性能优化
+            if ('connection' in navigator) {
+                if (navigator.connection.saveData) {
+                    // 数据节省模式
+                    document.querySelectorAll('img:not([loading="lazy"])').forEach(img => {
+                        img.loading = 'lazy';
+                    });
+                }
+            }
+        }
+    </script>
+
+    <!-- 内联关键CSS -->
+    <style type="text/css">
+        /* 首屏关键样式 */
+        .initial-load {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        .loaded {
+            opacity: 1;
+        }
+        /* 骨架屏样式 */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* 移动端优化 */
+        .is-mobile {
+            touch-action: manipulation;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        .is-mobile button,
+        .is-mobile a {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+
+        /* Ad sidebars around game */
+        .game-layout {
+            display: grid;
+            grid-template-columns: 1fr minmax(0, 800px) 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .sidebar-ad {
+            display: flex;
+            justify-content: center;
+        }
+
+        .center-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .ad-frame {
+            width: 180px;
+            min-height: 620px;
+            background: #f8fafc;
+            border: 1px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .ad-frame-wide {
+            background: #f8fafc;
+            border: 1px dashed #d1d5db;
+            border-radius: 12px;
+            padding: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .ad-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        @media (max-width: 1200px) {
+            .game-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .sidebar-ad {
+                display: none;
+            }
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        section[id] {
+            scroll-margin-top: 120px;
+        }
+    </style>
+</head>
+<body class="bg-apple-lightgray text-apple-dark">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#4A90B9] to-[#6CB2D6] text-white p-4 md:p-6 shadow-md rounded-b-3xl">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold text-shadow">Baseball Bros: Browser Baseball Game 2025</h1>
+                </div>
+                <nav class="md:ml-8">
+                    <ul class="flex space-x-6">
+                        <li><a href="#game" class="text-lg hover:text-apple-yellow transition-colors text-shadow font-medium">Play Now</a></li>
+                        <li><a href="#about" class="text-lg hover:text-apple-yellow transition-colors text-shadow font-medium">About</a></li>
+                        <li><a href="#how-to-play" class="text-lg hover:text-apple-yellow transition-colors text-shadow font-medium">How to Play</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 头部占位 -->
+    <div class="h-10 md:h-16"></div>
+
+    <main class="container mx-auto p-4 md:p-6">
+        <section id="game" class="my-8">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #4A90B9">Play Baseball Bros Online</h2>
+            <div class="game-layout">
+                <aside class="sidebar-ad">
+                    <div class="ad-frame">
+                        <div class="ad-label">Sponsored</div>
+                        <div class="ad-slot">
+                            <script type="text/javascript">
+                              atOptions = {
+                              	'key' : '5b98f190e4933b63d8e0c3b13a41bb27',
+                              	'format' : 'iframe',
+                              	'height' : 600,
+                              	'width' : 160,
+                              	'params' : {}
+                              };
+                            </script>
+                            <script
+                              type="text/javascript"
+                              src="//www.highperformanceformat.com/5b98f190e4933b63d8e0c3b13a41bb27/invoke.js"
+                            ></script>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="center-column">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div itemscope itemtype="https://schema.org/VideoGame">
+                            <meta itemprop="playMode" content="Browser"/>
+                            <meta itemprop="device" content="PC, Mobile, Tablet"/>
+                            <div class="relative w-full" style="padding-top: 56.25%">
+                                <!-- 添加骨架屏 -->
+                                <div class="skeleton absolute top-0 left-0 w-full h-full"></div>
+                                <iframe
+                                    data-src="https://baseballbros.io/"
+                                    class="absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-300"
+                                    loading="lazy"
+                                    decoding="async"
+                                    title="Play Baseball Bros Unblocked"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                    onload="this.classList.add('opacity-100'); this.previousElementSibling.style.display='none';">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ad-frame-wide">
+                        <div class="ad-label">Sponsored</div>
+                        <div class="ad-slot">
+                            <script type="text/javascript">
+                              atOptions = {
+                              	'key' : '2c4099f8e032af9638690e5341aec675',
+                              	'format' : 'iframe',
+                              	'height' : 90,
+                              	'width' : 728,
+                              	'params' : {}
+                              };
+                            </script>
+                            <script
+                              type="text/javascript"
+                              src="//www.highperformanceformat.com/2c4099f8e032af9638690e5341aec675/invoke.js"
+                            ></script>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="sidebar-ad">
+                    <div class="ad-frame">
+                        <div class="ad-label">Sponsored</div>
+                        <div class="ad-slot">
+                            <script type="text/javascript">
+                              atOptions = {
+                              	'key' : '5b98f190e4933b63d8e0c3b13a41bb27',
+                              	'format' : 'iframe',
+                              	'height' : 600,
+                              	'width' : 160,
+                              	'params' : {}
+                              };
+                            </script>
+                            <script
+                              type="text/javascript"
+                              src="//www.highperformanceformat.com/5b98f190e4933b63d8e0c3b13a41bb27/invoke.js"
+                            ></script>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="about" class="my-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #4A90B9">Baseball Bros Game Overview</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <p class="text-lg md:text-xl mb-4">Baseball Bros is a fast-paced multiplayer baseball IO game where you compete against players worldwide. With simple controls and addictive gameplay, it's perfect for quick sessions at school or work in 2025.</p>
+            </div>
+        </section>
+
+        <section id="how-to-play" class="my-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #4A90B9">Baseball Bros Controls & Tips</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-apple-dark mb-4">Baseball Bros Keyboard Controls (2025)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-4 bg-apple-lightgray rounded-lg">
+                        <h3 class="text-xl font-semibold text-apple-blue mb-2">Movement</h3>
+                        <p>Use Arrow Keys to move your player</p>
+                    </div>
+                    <div class="p-4 bg-apple-lightgray rounded-lg">
+                        <h3 class="text-xl font-semibold text-apple-green mb-2">Batting</h3>
+                        <p>Press Spacebar to swing the bat</p>
+                    </div>
+                    <div class="p-4 bg-apple-lightgray rounded-lg">
+                        <h3 class="text-xl font-semibold text-apple-orange mb-2">Pitching</h3>
+                        <p>Use Mouse to aim when pitching</p>
+                    </div>
+                    <div class="p-4 bg-apple-lightgray rounded-lg">
+                        <h3 class="text-xl font-semibold text-apple-purple mb-2">Pause</h3>
+                        <p>Press Escape to pause the game</p>
+                    </div>
+                </div>
+                <div class="mt-8 bg-apple-lightgray rounded-lg p-4">
+                    <h3 class="text-xl font-semibold text-apple-blue mb-2">Batting Like a Pro</h3>
+                    <p>Want to <strong>hit more home runs in Baseball Bros</strong>? Time your swing when the ball crosses the plate's center.</p>
+                </div>
+                <p class="text-lg text-apple-blue mt-6 italic">Pro Tip: For advanced moves, try combining Spacebar + Arrow Keys for power hits!</p>
+            </div>
+        </section>
+
+        <section id="why-play" class="my-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #4A90B9">Why Play Baseball Bros Online?</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-start">
+                        <span class="mr-3">🎮</span>
+                        <span><strong>Instant Browser Play</strong> – No downloads or installations</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3">⚡</span>
+                        <span><strong>Optimized for All Devices</strong> – Runs smoothly on Chromebooks, PCs & tablets</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3">🔄</span>
+                        <span><strong>Always Updated</strong> – Latest 2025 gameplay improvements</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3">🌐</span>
+                        <span><strong>No Plugins Needed</strong> – Works without Flash or Java</span>
+                    </li>
+                </ul>
+                <p class="text-gray-600 italic mt-6 text-sm">Note: Please comply with your local network policies when playing.</p>
+            </div>
+        </section>
+
+        <section id="school-guide" class="my-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #4A90B9">Baseball Bros on School Chromebooks</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-apple-dark mb-4">For the best experience:</h3>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-start">
+                        <span class="mr-3">📚</span>
+                        <span><strong>Use during breaks</strong> – Enjoy the game between classes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3">🌐</span>
+                        <span><strong>Connect to personal hotspots</strong> – If school Wi-Fi restricts access</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3">🖥️</span>
+                        <span><strong>Try alternative browsers</strong> – Like Firefox Portable (requires admin permission)</span>
+                    </li>
+                </ul>
+                <p class="text-gray-600 italic mt-6 text-sm">We respect educational institutions' network policies. Contact your IT department for access requests.</p>
+            </div>
+        </section>
+
+        <section id="strategies" class="my-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #4A90B9">Best Baseball Bros Strategies</h2>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="space-y-4">
+                    <div class="bg-apple-lightgray rounded-lg p-4">
+                        <h3 class="text-xl font-semibold text-apple-blue mb-2">Hitting Tips</h3>
+                        <p class="text-lg">Want to hit more home runs? Time your swing when the ball is inside the strike zone!</p>
+                    </div>
+                    <div class="bg-apple-lightgray rounded-lg p-4">
+                        <h3 class="text-xl font-semibold text-apple-green mb-2">2025 Pitching Meta</h3>
+                        <p>Master the new <strong>curveball technique</strong> added in the 2025 update.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gradient-to-r from-[#4A90B9] to-[#6CB2D6] text-white p-6 rounded-t-3xl">
+        <div class="container mx-auto text-center">
+            <p class="text-shadow">&copy; 2025 Baseball Bros. All rights reserved.</p>
+            <div class="text-sm mt-4 text-center opacity-90">
+                <p>"Baseball Bros" is a registered trademark. This site provides <strong>browser access</strong> through standard web technologies. Always follow your <strong>organization's internet policies</strong> when playing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lazy-load popunder script to avoid blocking render
+        window.addEventListener('load', function() {
+            var s = document.createElement('script');
+            s.type = 'text/javascript';
+            s.src = '//pl28202715.effectivegatecpm.com/63/c7/ca/63c7cacac8069d2f555cf280c88981b8.js';
+            document.body.appendChild(s);
+        });
+    </script>
+    <script>
+        // Lazy-load floating social bar
+        window.addEventListener('load', function() {
+            var sb = document.createElement('script');
+            sb.type = 'text/javascript';
+            sb.src = '//pl28202731.effectivegatecpm.com/db/d9/36/dbd93667d9c8a81ea4d13d1be7d854d1.js';
+            document.body.appendChild(sb);
+        });
+    </script>
+</body>
+</html>
