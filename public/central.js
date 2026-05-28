@@ -13,16 +13,27 @@
 		credits: '/credits.html',
 		partners: '/partners.html',
 		privacy: '/privacy.html',
+		settings: '/settings.html',
 	};
-	const SOLO_TO_PAGE = { home: 'home', games: 'docs', apps: 'books', credits: 'credits', partners: 'partners', privacy: 'privacy' };
-	const PAGE_TO_SOLO = { home: 'home', docs: 'games', books: 'apps', credits: 'credits', partners: 'partners', privacy: 'privacy' };
-	const PAGE_NAMES = { home: 'Home', docs: 'Games', books: 'Apps', credits: 'Credits', partners: 'Partners', privacy: 'Privacy' };
+	const SOLO_TO_PAGE = { home: 'home', games: 'docs', apps: 'books', credits: 'credits', partners: 'partners', privacy: 'privacy', settings: 'settings' };
+	const PAGE_TO_SOLO = { home: 'home', docs: 'games', books: 'apps', credits: 'credits', partners: 'partners', privacy: 'privacy', settings: 'settings' };
+	const PAGE_NAMES = { home: 'Home', docs: 'Games', books: 'Apps', credits: 'Credits', partners: 'Partners', privacy: 'Privacy', settings: 'Settings' };
 
 	let sjFrame = null;
 	let proxyActive = false;
 	let currentPage = 'home';
 
-	let tabs = [{ id: 1, title: 'Home', pageKey: 'home', proxyUrl: null, localPath: null }];
+	function getFavicon(url) {
+		if (!url) return '/stuff/v7.png';
+		try {
+			var host = new URL(url).hostname;
+			return 'https://www.google.com/s2/favicons?domain=' + host + '&sz=16';
+		} catch (e) {
+			return '/stuff/v7.png';
+		}
+	}
+
+	let tabs = [{ id: 1, title: 'Home', pageKey: 'home', proxyUrl: null, localPath: null, favicon: '/stuff/v7.png' }];
 	let activeTabId = 1;
 	let nextTabId = 2;
 
@@ -81,10 +92,16 @@
 				closeTab(tab.id);
 			});
 
+			const favicon = document.createElement('img');
+			favicon.className = 'tab-favicon';
+			favicon.src = tab.favicon || '/stuff/v7.png';
+			favicon.onerror = function () { this.style.display = 'none'; };
+
 			const title = document.createElement('span');
 			title.className = 'tab-title';
 			title.textContent = tab.title || 'New Tab';
 
+			li.appendChild(favicon);
 			li.appendChild(title);
 			li.appendChild(close);
 			li.addEventListener('click', function () { switchTab(tab.id); });
@@ -116,7 +133,7 @@
 	function closeTab(id) {
 		if (tabs.length === 1) {
 			const tab = tabs[0];
-			Object.assign(tab, { title: 'Home', pageKey: 'home', proxyUrl: null, localPath: null });
+			Object.assign(tab, { title: 'Home', pageKey: 'home', proxyUrl: null, localPath: null, favicon: '/stuff/v7.png' });
 			goToPage('home');
 			return;
 		}
@@ -132,7 +149,7 @@
 
 	function newTab() {
 		const id = nextTabId++;
-		tabs.push({ id, title: 'Home', pageKey: 'home', proxyUrl: null, localPath: null });
+		tabs.push({ id, title: 'Home', pageKey: 'home', proxyUrl: null, localPath: null, favicon: '/stuff/v7.png' });
 		activeTabId = id;
 		goToPage('home');
 	}
@@ -148,7 +165,7 @@
 					const scramPrefix = location.origin + '/scramjet/';
 					const real = href.startsWith(scramPrefix) ? decodeURIComponent(href.slice(scramPrefix.length)) : href;
 					setUrlDisplay(real);
-					updateActiveTab({ proxyUrl: real, title: real });
+					updateActiveTab({ proxyUrl: real, title: real, favicon: getFavicon(real) });
 				} catch (e) {}
 			});
 			contentArea.appendChild(sjFrame.frame);
@@ -178,20 +195,20 @@
 		currentPage = page;
 		setActive(page);
 		setUrlDisplay(soloUrl(page));
-		updateActiveTab({ pageKey: page, proxyUrl: null, localPath: null, title: PAGE_NAMES[page] || page });
+		updateActiveTab({ pageKey: page, proxyUrl: null, localPath: null, title: PAGE_NAMES[page] || page, favicon: '/stuff/v7.png' });
 	}
 
 	async function goProxy(input) {
 		if (input.startsWith('/')) {
 			navigateLocal(input);
-			updateActiveTab({ pageKey: null, proxyUrl: null, localPath: input, title: input.split('/').pop() || input });
+			updateActiveTab({ pageKey: null, proxyUrl: null, localPath: input, title: input.split('/').pop() || input, favicon: '/stuff/v7.png' });
 			return;
 		}
 		const url = search(input, 'https://www.google.com/search?q=%s');
 		activateProxy();
 		setUrlDisplay(url);
 		sjFrame.go(url);
-		updateActiveTab({ pageKey: null, proxyUrl: url, localPath: null, title: url });
+		updateActiveTab({ pageKey: null, proxyUrl: url, localPath: null, title: url, favicon: getFavicon(url) });
 	}
 
 	navBtns.forEach(el => el.addEventListener('click', () => goToPage(el.dataset.page)));
@@ -248,7 +265,7 @@
 			const url = e.data.url;
 			if (url.startsWith('/')) {
 				navigateLocal(url);
-				updateActiveTab({ pageKey: null, proxyUrl: null, localPath: url, title: url.split('/').pop() || url });
+				updateActiveTab({ pageKey: null, proxyUrl: null, localPath: url, title: url.split('/').pop() || url, favicon: '/stuff/v7.png' });
 			} else {
 				urlBar.value = url;
 				goProxy(url);
@@ -256,6 +273,29 @@
 		}
 		if (e.data.type === 'title') {
 			updateActiveTab({ title: e.data.value });
+		}
+		if (e.data.type === 'set-theme') {
+			var THEMES = {
+				def:    { accent: '#ff4da6', border: '#e6398d' },
+				blue:   { accent: '#60a5fa', border: '#3b82f6' },
+				purple: { accent: '#a78bfa', border: '#7c3aed' },
+				green:  { accent: '#4ade80', border: '#16a34a' },
+				red:    { accent: '#f87171', border: '#dc2626' },
+				orange: { accent: '#fb923c', border: '#ea580c' },
+				cyan:   { accent: '#22d3ee', border: '#0891b2' },
+				white:  { accent: '#f9f9fa', border: '#b1b1b3' },
+			};
+			var t = THEMES[e.data.value] || THEMES.def;
+			document.documentElement.style.setProperty('--accent-main', t.accent);
+			document.documentElement.style.setProperty('--border-main', t.border);
+			try { contentFrame.contentWindow.postMessage({ type: 'set-theme', value: e.data.value }, '*'); } catch (ex) {}
+		}
+		if (e.data.type === 'set-cloak') {
+			if (e.data.title) document.title = e.data.title;
+			if (e.data.favicon) {
+				var link = document.querySelector('link[rel="icon"]');
+				if (link) link.href = e.data.favicon;
+			}
 		}
 	});
 

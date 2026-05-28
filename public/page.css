@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
 
+:root {
+	--accent-main: #ff4da6;
+	--border-main: var(--border-main);
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Quicksand', sans-serif; font-weight: 700; }
 
 #particles-js {
@@ -32,7 +37,7 @@ body {
 h1 {
 	font-size: 2rem;
 	font-weight: 300;
-	color: #e6398d;
+	color: var(--border-main);
 	margin-bottom: 1.5rem;
 	letter-spacing: 0.04em;
 	text-transform: lowercase;
@@ -44,7 +49,7 @@ h1 {
 	width: 100%;
 	max-width: 420px;
 	background: #0d0d0d;
-	border: 1px solid #e6398d;
+	border: 1px solid var(--border-main);
 	border-radius: 0.5rem;
 	color: #f9f9fa;
 	font-family: 'Quicksand', sans-serif;
@@ -80,7 +85,7 @@ h1 {
 }
 
 .card:hover {
-	border-color: #e6398d;
+	border-color: var(--border-main);
 }
 
 .card img {

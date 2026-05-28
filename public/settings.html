@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Settings | Solo Central</title>
+	<script src="theme.js"></script>
+	<link rel="stylesheet" href="page.css" />
+	<style>
+		.settings-wrap {
+			width: 100%;
+			max-width: 480px;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+		.setting-card {
+			background: #0d0d0d;
+			border: 1px solid var(--border-main, #e6398d);
+			border-radius: 0.75rem;
+			padding: 1.25rem 1.5rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+		.setting-card h2 {
+			font-size: 0.85rem;
+			font-weight: 700;
+			color: var(--accent-main, #ff4da6);
+			margin: 0;
+		}
+		.setting-row {
+			display: flex;
+			gap: 0.75rem;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		select, input[type="text"] {
+			flex: 1;
+			min-width: 0;
+			background: #000;
+			border: 1px solid #2a2a2a;
+			border-radius: 0.5rem;
+			color: #f9f9fa;
+			font-family: 'Quicksand', sans-serif;
+			font-size: 0.875rem;
+			font-weight: 700;
+			padding: 0.5rem 0.75rem;
+			outline: none;
+			transition: border-color 0.2s;
+			appearance: none;
+			-webkit-appearance: none;
+			cursor: pointer;
+		}
+		select:focus, input[type="text"]:focus {
+			border-color: var(--accent-main, #ff4da6);
+		}
+		input[type="text"] { cursor: text; }
+		.apply-btn {
+			background: var(--accent-main, #ff4da6);
+			color: #000;
+			border: none;
+			border-radius: 0.5rem;
+			font-family: 'Quicksand', sans-serif;
+			font-size: 0.875rem;
+			font-weight: 700;
+			padding: 0.5rem 1.25rem;
+			cursor: pointer;
+			transition: opacity 0.15s;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+		.apply-btn:hover { opacity: 0.85; }
+		.apply-btn:active { opacity: 0.7; }
+		.saved-msg {
+			font-size: 0.75rem;
+			color: var(--accent-main, #ff4da6);
+			opacity: 0;
+			transition: opacity 0.3s;
+			align-self: center;
+		}
+		.saved-msg.show { opacity: 1; }
+	</style>
+</head>
+<body>
+	<div id="particles-js"></div>
+	<div class="content">
+		<h1>settings</h1>
+		<div class="settings-wrap">
+
+			<div class="setting-card">
+				<h2>Theme</h2>
+				<div class="setting-row">
+					<select id="theme-select">
+						<option value="def">Default</option>
+						<option value="blue">Blue</option>
+						<option value="purple">Purple</option>
+						<option value="green">Green</option>
+						<option value="red">Red</option>
+						<option value="orange">Orange</option>
+						<option value="cyan">Cyan</option>
+						<option value="white">White</option>
+					</select>
+					<button class="apply-btn" id="apply-theme">Apply</button>
+					<span class="saved-msg" id="theme-saved">saved!</span>
+				</div>
+			</div>
+
+			<div class="setting-card">
+				<h2>Tab Cloak</h2>
+				<div class="setting-row">
+					<select id="cloak-preset">
+						<option value="">— Presets —</option>
+						<option value="classroom">Google Classroom</option>
+						<option value="khan">Khan Academy</option>
+						<option value="google">Google</option>
+						<option value="docs">Google Docs</option>
+						<option value="canvas">Canvas</option>
+						<option value="schoology">Schoology</option>
+						<option value="desmos">Desmos</option>
+						<option value="quizlet">Quizlet</option>
+						<option value="newsela">Newsela</option>
+						<option value="wikipedia">Wikipedia</option>
+						<option value="duolingo">Duolingo</option>
+						<option value="youtube">YouTube</option>
+					</select>
+				</div>
+				<div class="setting-row">
+					<input type="text" id="cloak-title" placeholder="Tab title" />
+				</div>
+				<div class="setting-row">
+					<button class="apply-btn" id="apply-cloak">Apply</button>
+					<span class="saved-msg" id="cloak-saved">saved!</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+	<script src="scparticles.js"></script>
+	<script>
+	(function () {
+		var CLOAKS = {
+			classroom: { title: 'Classroom',                   domain: 'classroom.google.com' },
+			khan:      { title: 'Khan Academy',                domain: 'www.khanacademy.org' },
+			google:    { title: 'Google',                      domain: 'www.google.com' },
+			docs:      { title: 'Google Docs',                 domain: 'docs.google.com' },
+			canvas:    { title: 'Dashboard',                   domain: 'canvas.instructure.com' },
+			schoology: { title: 'Schoology',                   domain: 'www.schoology.com' },
+			desmos:    { title: 'Desmos Graphing Calculator',  domain: 'www.desmos.com' },
+			quizlet:   { title: 'Quizlet',                     domain: 'quizlet.com' },
+			newsela:   { title: 'Newsela',                     domain: 'newsela.com' },
+			wikipedia: { title: 'Wikipedia',                   domain: 'en.wikipedia.org' },
+			duolingo:  { title: 'Duolingo',                    domain: 'www.duolingo.com' },
+			youtube:   { title: 'YouTube',                     domain: 'www.youtube.com' },
+		};
+
+		function faviconUrl(domain) {
+			return 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=32';
+		}
+
+		function flashSaved(el) {
+			el.classList.add('show');
+			setTimeout(function () { el.classList.remove('show'); }, 1800);
+		}
+
+		var themeSelect   = document.getElementById('theme-select');
+		var applyThemeBtn = document.getElementById('apply-theme');
+		var themeSaved    = document.getElementById('theme-saved');
+		var cloakPreset   = document.getElementById('cloak-preset');
+		var cloakTitle    = document.getElementById('cloak-title');
+		var applyCloakBtn = document.getElementById('apply-cloak');
+		var cloakSaved    = document.getElementById('cloak-saved');
+
+		var currentCloakDomain = '';
+
+		themeSelect.value = localStorage.getItem('sc-theme') || 'def';
+
+		applyThemeBtn.addEventListener('click', function () {
+			var key = themeSelect.value;
+			localStorage.setItem('sc-theme', key);
+			window.parent.postMessage({ type: 'set-theme', value: key }, '*');
+			flashSaved(themeSaved);
+		});
+
+		cloakPreset.addEventListener('change', function () {
+			var key = cloakPreset.value;
+			if (key && CLOAKS[key]) {
+				cloakTitle.value = CLOAKS[key].title;
+				currentCloakDomain = CLOAKS[key].domain;
+			} else {
+				currentCloakDomain = '';
+			}
+		});
+
+		applyCloakBtn.addEventListener('click', function () {
+			var title = cloakTitle.value.trim();
+			var favicon = currentCloakDomain ? faviconUrl(currentCloakDomain) : '';
+			if (!title) return;
+			localStorage.setItem('sc-cloak-title', title);
+			localStorage.setItem('sc-cloak-favicon', favicon);
+			window.parent.postMessage({ type: 'set-cloak', title: title, favicon: favicon }, '*');
+			flashSaved(cloakSaved);
+		});
+
+		var savedCloak = localStorage.getItem('sc-cloak-title');
+		if (savedCloak) cloakTitle.value = savedCloak;
+
+		window.parent.postMessage({ type: 'title', value: 'Settings' }, '*');
+	})();
+	</script>
+</body>
+</html>

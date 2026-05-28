@@ -126,6 +126,15 @@ a:hover {
 
 .tabs li.tab .tab-close { flex-shrink: 0; flex-grow: 0; }
 
+.tabs li.tab .tab-favicon {
+	width: 14px;
+	height: 14px;
+	border-radius: 2px;
+	flex-shrink: 0;
+	object-fit: contain;
+	margin-right: 0.35rem;
+}
+
 .tabs li.tab .tab-title {
 	flex: 1;
 	overflow: hidden;
@@ -237,7 +246,7 @@ a:hover {
 	outline: none;
 	color: var(--text-muted);
 	font-family: 'Inter', sans-serif;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 400;
 	transition: color 0.2s ease;
 }
