@@ -218,5 +218,7 @@
   { "url": "/gxmez/a-small-world-cup.html", "img": "/books/a-small-world-cup.webp", "alt": "A Small World Cup", "desc": "ragdoll soccer world cup" },
   { "url": "/gxmez/they-are-coming.html", "img": "/books/they-are-coming.webp", "alt": "They Are Coming", "desc": "defend against infinite enemy waves" },
   { "url": "/gxmez/baseball-bros.html", "img": "/books/bbb.jpg", "alt": "Baseball Bro's", "desc": "2-player browser baseball" },
-  { "url": "/gxmez/the-powder-toy.html", "img": "/books/the-powder-toy.webp", "alt": "The Powder Toy", "desc": "physics sandbox with elements" }
+  { "url": "/gxmez/the-powder-toy.html", "img": "/books/the-powder-toy.webp", "alt": "The Powder Toy", "desc": "physics sandbox with elements" },
+  { "url": "/gxmez/baldi-udc.html", "img": "/books/baldi-udc.webp", "alt": "Baldi's Basics: The Ultra Decompile", "desc": "baldi's basics but its the ultra decompile" }
+
 ]
