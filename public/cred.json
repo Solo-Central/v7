@@ -1,0 +1,4 @@
+[  { "url": "/scramjet/https://qatual.net/",           "img": "/books/qatual.webp",           "alt": "qatual",   "desc": "owner, did most of the site" },
+   { "url": "/scramjet/https://mercurywork.shop/",           "img": "/books/mw.webp",           "alt": "Mercury Workshop",   "desc": "the scramjet backend" },
+   { "url": "/scramjet/https://github.com/fentezzys",           "img": "/books/fentezzys.webp",           "alt": "fentezzys",   "desc": "alot of the js" }
+]

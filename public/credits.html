@@ -3,58 +3,71 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Credits | Solo Central</title>
+		<script src="theme.js"></script>
 		<link rel="stylesheet" href="page.css" />
-		<style>
-			details {
-				border: 1px solid rgba(26, 86, 219, 0.3);
-				border-radius: 0.5rem;
-				padding: 0.875rem 1rem;
-				background: rgba(26, 86, 219, 0.04);
-				margin-bottom: 0.5rem;
-				transition: background 0.2s;
-			}
-			details:hover { background: rgba(26, 86, 219, 0.08); }
-			summary {
-				display: flex;
-				align-items: center;
-				gap: 0.75rem;
-				cursor: pointer;
-				list-style: none;
-				flex-wrap: wrap;
-			}
-			summary::-webkit-details-marker { display: none; }
-			.credit-name { flex: 1; font-size: 0.9rem; }
-			.credit-link { color: #1a56db; font-size: 0.8rem; text-decoration: none; }
-			.credit-link:hover { text-decoration: underline; }
-			.credit-tag {
-				color: #b1b1b3;
-				font-size: 0.75rem;
-				border: 1px solid #333;
-				border-radius: 0.25rem;
-				padding: 0.1rem 0.4rem;
-			}
-			details pre {
-				margin-top: 0.875rem;
-				font-size: 0.7rem;
-				color: #b1b1b3;
-				white-space: pre-wrap;
-				word-break: break-word;
-				font-family: monospace;
-				line-height: 1.6;
-			}
-		</style>
 	</head>
 	<body>
 		<div id="particles-js"></div>
 		<div class="content">
 			<h1>credits</h1>
-			<h2>qatual - made the whole site</h2>
-			<h2>mercury workshop - made scramjet, the proxy backend</h2>
-			<h2>krasify - js and css help</h2>
+			<input class="search-bar" id="search" type="text" placeholder="search people..." autocomplete="off" spellcheck="false" />
+			<div class="grid" id="a-grid"></div>
+		</div>
 		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 		<script src="scparticles.js"></script>
 		<script>
+		(function () {
+			const grid = document.getElementById('a-grid');
+			const search = document.getElementById('search');
+			let apps = [];
+
+			function render(list) {
+				grid.innerHTML = '';
+				if (!list.length) {
+					grid.innerHTML = '<div class="empty">no credits found</div>';
+					return;
+				}
+				list.forEach(function (a) {
+					const card = document.createElement('div');
+					card.className = 'card';
+					const img = document.createElement('img');
+					img.src = a.img;
+					img.alt = a.alt;
+					img.loading = 'lazy';
+					img.onerror = function () { this.src = 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 160 130%27%3E%3Crect width=%27160%27 height=%27130%27 fill=%27%230a0a0a%27/%3E%3C/svg%3E'; this.onerror = null; };
+					const info = document.createElement('div');
+					info.className = 'card-info';
+					const title = document.createElement('div');
+					title.className = 'card-title';
+					title.textContent = a.alt;
+					info.appendChild(title);
+					if (a.desc) {
+						const desc = document.createElement('div');
+						desc.className = 'card-desc';
+						desc.textContent = a.desc;
+						info.appendChild(desc);
+					}
+					card.appendChild(img);
+					card.appendChild(info);
+					card.addEventListener('click', function () {
+						window.parent.postMessage({ type: 'navigate', url: a.url }, '*');
+					});
+					grid.appendChild(card);
+				});
+			}
+
+			search.addEventListener('input', function () {
+				const q = search.value.trim().toLowerCase();
+				render(q ? apps.filter(function (a) { return a.alt.toLowerCase().includes(q); }) : apps);
+			});
+
+			fetch('cred.json')
+				.then(function (r) { return r.json(); })
+				.then(function (data) { apps = data; render(apps); })
+				.catch(function () { grid.innerHTML = '<div class="empty">failed to load apps</div>'; });
+
 			window.parent.postMessage({ type: 'title', value: 'Credits | Solo Central' }, '*');
+		})();
 		</script>
 	</body>
 </html>

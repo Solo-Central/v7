@@ -1,138 +1,28 @@
 [
-    {
-      "url": "/4ppz/30.html",
-      "img": "/books/30.webp",
-      "alt": "30 dollar website"
-    },
-    {
-      "url": "/4ppz/android.html",
-      "img": "/books/android.webp",
-      "alt": "android"
-    },
-    {
-      "url": "/4ppz/aptoide.html",
-      "img": "/books/aptoide.webp",
-      "alt": "aptoide"
-    },
-    {
-      "url": "/4ppz/discord.html",
-      "img": "/books/discord.webp",
-      "alt": "discord"
-    },
-    {
-      "url": "/4ppz/freedns.html",
-      "img": "/books/freedns.webp",
-      "alt": "freedns"
-    },
-    {
-      "url": "/4ppz/geforce.html",
-      "img": "/books/geforce.webp",
-      "alt": "geforce"
-    },
-    {
-        "url": "/4ppz/github.html",
-        "img": "/books/github.webp",
-        "alt": "github"
-    },
-    {
-        "url": "/4ppz/google.html",
-        "img": "/books/google.webp",
-        "alt": "google"
-    },
-    {
-        "url": "/4ppz/instagram.html",
-        "img": "/books/instagram.webp",
-        "alt": "instagram"
-    },
-    {
-        "url": "/4ppz/netflix.html",
-        "img": "/books/netflix.webp",
-        "alt": "netflix"
-    },
-    {
-        "url": "/4ppz/pinterest.html",
-        "img": "/books/pinterest.webp",
-        "alt": "pinterest"
-    },
-    {
-        "url": "/4ppz/reddit.html",
-        "img": "/books/reddit.webp",
-        "alt": "reddit"
-    },
-    {
-        "url": "/4ppz/schoolcheats.html",
-        "img": "/books/schoolcheats.webp",
-        "alt": "schoolcheats"
-    },
-    {
-        "url": "/4ppz/snapchat.html",
-        "img": "/books/snapchat.webp",
-        "alt": "snapchat"
-    },
-    {
-        "url": "/4ppz/soundcloud.html",
-        "img": "/books/soundcloud.webp",
-        "alt": "soundcloud"
-    },
-    {
-        "url": "/4ppz/spotify.html",
-        "img": "/books/spotify.webp",
-        "alt": "spotify"
-    },
-    {
-        "url": "/4ppz/tiktok.html",
-        "img": "/books/tiktok.webp",
-        "alt": "tiktok"
-    },
-    {
-        "url": "/4ppz/twitch.html",
-        "img": "/books/twitch.webp",
-        "alt": "twitch"
-    },
-    {
-        "url": "/4ppz/twitter.html",
-        "img": "/books/twitter.webp",
-        "alt": "twitter"
-    },
-    {
-        "url": "/4ppz/vscode.html",
-        "img": "/books/vscode.webp",
-        "alt": "visual studio code"
-    },
-    {
-        "url": "/4ppz/whatsapp.html",
-        "img": "/books/whatsapp.webp",
-        "alt": "whatsapp"
-    },
-    {
-        "url": "/4ppz/win11.html",
-        "img": "/books/win11.webp",
-        "alt": "windows 11"
-    },
-    {
-        "url": "/4ppz/xbox.html",
-        "img": "/books/xbox.webp",
-        "alt": "xbox"
-    },
-    {
-      "url": "/4ppz/youtube.html",
-      "img": "/books/youtube.webp",
-      "alt": "youtube"
-    },
-    {
-        "url": "/4ppz/movies.html",
-        "img": "/books/movies.webp",
-        "alt": "movies"
-      },
-    {
-        "url": "/4ppz/omoggle.html",
-        "img": "/books/omoggle.webp",
-        "alt": "Omoggle"
-      },
-    {
-        "url": "/4ppz/crunchyroll.html",
-        "img": "/books/crunchyroll.webp",
-        "alt": "Crunchy Roll"
-      }  
-  ]
-  
+  { "url": "/4ppz/30.html",           "img": "/books/30.webp",           "alt": "30 dollar website",   "desc": "a soundboard" },
+  { "url": "/4ppz/aptoide.html",      "img": "/books/aptoide.webp",      "alt": "aptoide",             "desc": "alternative android app store" },
+  { "url": "/4ppz/discord.html",      "img": "/books/discord.webp",      "alt": "discord",             "desc": "chat with your friends" },
+  { "url": "/4ppz/freedns.html",      "img": "/books/freedns.webp",      "alt": "freedns",             "desc": "free dynamic DNS service" },
+  { "url": "/4ppz/geforce.html",      "img": "/books/geforce.webp",      "alt": "geforce",             "desc": "cloud gaming via GeForce Now" },
+  { "url": "/4ppz/github.html",       "img": "/books/github.webp",       "alt": "github",              "desc": "host and share your code" },
+  { "url": "/4ppz/google.html",       "img": "/books/google.webp",       "alt": "google",              "desc": "search the internet" },
+  { "url": "/4ppz/instagram.html",    "img": "/books/instagram.webp",    "alt": "instagram",           "desc": "photos, reels, stories" },
+  { "url": "/4ppz/netflix.html",      "img": "/books/netflix.webp",      "alt": "netflix",             "desc": "stream movies and shows" },
+  { "url": "/4ppz/pinterest.html",    "img": "/books/pinterest.webp",    "alt": "pinterest",           "desc": "discover and save ideas" },
+  { "url": "/4ppz/reddit.html",       "img": "/books/reddit.webp",       "alt": "reddit",              "desc": "the front page of the internet" },
+  { "url": "/4ppz/schoolcheats.html", "img": "/books/schoolcheats.webp", "alt": "schoolcheats",        "desc": "cheat sheets for school" },
+  { "url": "/4ppz/snapchat.html",     "img": "/books/snapchat.webp",     "alt": "snapchat",            "desc": "send disappearing snaps" },
+  { "url": "/4ppz/soundcloud.html",   "img": "/books/soundcloud.webp",   "alt": "soundcloud",          "desc": "stream and upload music" },
+  { "url": "/4ppz/spotify.html",      "img": "/books/spotify.webp",      "alt": "spotify",             "desc": "stream music and podcasts" },
+  { "url": "/4ppz/tiktok.html",       "img": "/books/tiktok.webp",       "alt": "tiktok",              "desc": "short videos, infinite scroll" },
+  { "url": "/4ppz/twitch.html",       "img": "/books/twitch.webp",       "alt": "twitch",              "desc": "watch live streams" },
+  { "url": "/4ppz/twitter.html",      "img": "/books/twitter.webp",      "alt": "twitter",             "desc": "post tweets, start fights" },
+  { "url": "/4ppz/vscode.html",       "img": "/books/vscode.webp",       "alt": "visual studio code",  "desc": "lightweight code editor" },
+  { "url": "/4ppz/whatsapp.html",     "img": "/books/whatsapp.webp",     "alt": "whatsapp",            "desc": "encrypted messaging app" },
+  { "url": "/4ppz/win11.html",        "img": "/books/win11.webp",        "alt": "windows 11",          "desc": "self explanitory" },
+  { "url": "/4ppz/xbox.html",         "img": "/books/xbox.webp",         "alt": "xbox",                "desc": "xbox cloud gaming" },
+  { "url": "/4ppz/youtube.html",      "img": "/books/youtube.webp",      "alt": "youtube",             "desc": "watch and upload videos" },
+  { "url": "/4ppz/movies.html",       "img": "/books/movies.webp",       "alt": "movies",              "desc": "stream free movies" },
+  { "url": "/4ppz/omoggle.html",      "img": "/books/omoggle.webp",      "alt": "Omoggle",             "desc": "anonymous video chat" },
+  { "url": "/4ppz/crunchyroll.html",  "img": "/books/crunchyroll.webp",  "alt": "Crunchy Roll",        "desc": "watch anime" }
+]

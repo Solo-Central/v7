@@ -34,12 +34,21 @@
 					img.src = g.img;
 					img.alt = g.alt;
 					img.loading = 'lazy';
-					img.onerror = function () { this.src = 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 180 180%27%3E%3Crect width=%27180%27 height=%27180%27 fill=%27%230d0d0d%27/%3E%3C/svg%3E'; this.onerror = null; };
+					img.onerror = function () { this.src = 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 160 130%27%3E%3Crect width=%27160%27 height=%27130%27 fill=%27%230a0a0a%27/%3E%3C/svg%3E'; this.onerror = null; };
+					const info = document.createElement('div');
+					info.className = 'card-info';
 					const title = document.createElement('div');
 					title.className = 'card-title';
 					title.textContent = g.alt;
+					info.appendChild(title);
+					if (g.desc) {
+						const desc = document.createElement('div');
+						desc.className = 'card-desc';
+						desc.textContent = g.desc;
+						info.appendChild(desc);
+					}
 					card.appendChild(img);
-					card.appendChild(title);
+					card.appendChild(info);
 					card.addEventListener('click', function () {
 						window.parent.postMessage({ type: 'navigate', url: g.url }, '*');
 					});

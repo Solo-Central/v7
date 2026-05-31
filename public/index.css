@@ -37,6 +37,31 @@ body {
 	height: 100vh;
 }
 
+::-webkit-scrollbar {
+	width: 12px;
+	height: 0px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--border-main);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--accent-main);
+	border-radius: 10px;
+	border: 3px solid #29142e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #411e41;
+}
+
+::selection {
+	background-color: var(--border-main);
+	color: rgb(0, 0, 0);
+}
+
 .nav-ctrl .sci {
 	font-size: 1.25rem;
 }
