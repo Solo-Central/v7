@@ -255,6 +255,15 @@
 			return;
 		}
 		const url = search(input, 'https://www.google.com/search?q=%s');
+		try {
+			const parsed = new URL(url);
+			if (parsed.origin === location.origin) {
+				const local = parsed.pathname + parsed.search + parsed.hash;
+				navigateLocal(local);
+				updateActiveTab({ pageKey: null, proxyUrl: null, localPath: local, title: local.split('/').pop() || local, favicon: '/stuff/v7.png' });
+				return;
+			}
+		} catch (e) {}
 		const tab = getActiveTab();
 		if (tab.sjInst) {
 			tab.sjInst.go(url);
@@ -272,6 +281,11 @@
 	}
 
 	navBtns.forEach(el => el.addEventListener('click', () => goToPage(el.dataset.page)));
+
+	document.querySelectorAll('.nav-icon[data-url]').forEach(el => el.addEventListener('click', () => {
+		urlBar.value = el.dataset.url;
+		goProxy(el.dataset.url);
+	}));
 
 	navForm.addEventListener('submit', async (e) => {
 		e.preventDefault();
