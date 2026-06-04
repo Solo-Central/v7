@@ -63,7 +63,7 @@
 
 			fetch('tstststststststststststststststststststststststs.json')
 				.then(function (r) { return r.json(); })
-				.then(function (data) { apps = data; render(apps); })
+				.then(function (data) { apps = data.slice().sort(function (a, b) { return a.alt.localeCompare(b.alt); }); render(apps); })
 				.catch(function () { grid.innerHTML = '<div class="empty">failed to load apps</div>'; });
 
 			window.parent.postMessage({ type: 'title', value: 'Apps | Solo Central' }, '*');

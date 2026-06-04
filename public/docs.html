@@ -63,7 +63,7 @@
 
 			fetch('gg.json')
 				.then(function (r) { return r.json(); })
-				.then(function (data) { games = data; render(games); })
+				.then(function (data) { games = data.slice().sort(function (a, b) { return a.alt.localeCompare(b.alt); }); render(games); })
 				.catch(function () { grid.innerHTML = '<div class="empty">failed to load games</div>'; });
 
 			window.parent.postMessage({ type: 'title', value: 'Games | Solo Central' }, '*');

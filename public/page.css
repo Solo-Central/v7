@@ -58,6 +58,7 @@ body {
 	background-color: var(--border-main);
 	color: rgb(0, 0, 0);
 }
+
 h1 {
 	font-size: 2rem;
 	font-weight: 300;
@@ -106,11 +107,27 @@ h1 {
 	display: flex;
 	flex-direction: column;
 	will-change: transform;
+	position: relative;
+}
+
+.card::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--border-main);
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+	border-radius: 10px;
 }
 
 .card:hover {
 	transform: scale(1.07);
 	box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover::after {
+	opacity: 0.12;
 }
 
 .card img {
