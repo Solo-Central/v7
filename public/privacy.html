@@ -3,35 +3,57 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Privacy Policy | Solo Central</title>
+		<script src="theme.js"></script>
 		<link rel="stylesheet" href="page.css" />
 		<style>
-			section {
-				margin-bottom: 1.5rem;
-			}
-			h2 {
-				font-size: 1rem;
-				font-weight: 500;
-				color: #1a56db;
-				margin-bottom: 0.5rem;
-				text-transform: lowercase;
-				letter-spacing: 0.03em;
-			}
-			p, li {
-				font-size: 0.875rem;
-				color: #b1b1b3;
-				line-height: 1.7;
-			}
-			ul {
-				padding-left: 1.25rem;
-				margin-top: 0.25rem;
-			}
-			li {
-				margin-bottom: 0.2rem;
+			.privacy-wrap {
+				width: 100%;
+				max-width: 640px;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
 			}
 			.updated {
 				font-size: 0.75rem;
 				color: #555;
-				margin-bottom: 1.5rem;
+				margin-bottom: 0.5rem;
+				text-align: center;
+			}
+			.privacy-section {
+				background: #0d0d0d;
+				border: 1px solid var(--border-main, #e6398d);
+				border-radius: 0.75rem;
+				padding: 1.25rem 1.5rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.6rem;
+			}
+			.privacy-section h2 {
+				font-size: 0.85rem;
+				font-weight: 700;
+				color: var(--accent-main, #ff4da6);
+				margin: 0;
+				text-transform: lowercase;
+				letter-spacing: 0.03em;
+			}
+			.privacy-section p,
+			.privacy-section li {
+				font-size: 0.8rem;
+				color: #b1b1b3;
+				line-height: 1.7;
+			}
+			.privacy-section ul {
+				padding-left: 1.25rem;
+				display: flex;
+				flex-direction: column;
+				gap: 0.15rem;
+			}
+			.privacy-section a {
+				color: var(--accent-main, #ff4da6);
+				text-decoration: none;
+			}
+			.privacy-section a:hover {
+				text-decoration: underline;
 			}
 		</style>
 	</head>
@@ -39,58 +61,80 @@
 		<div id="particles-js"></div>
 		<div class="content">
 			<h1>privacy policy</h1>
-			<p class="updated">Last updated: May 22, 2026</p>
+			<p class="updated">Last updated: June 4, 2026</p>
+			<div class="privacy-wrap">
 
-			<section>
-				<h2>overview</h2>
-				<p>Solo Central is a web proxy service. We are committed to being transparent about what data we do and do not collect. This policy explains our practices clearly.</p>
-			</section>
+				<div class="privacy-section">
+					<h2>overview</h2>
+					<p>Solo Central is a web proxy and gaming platform. We are committed to being transparent about what data we do and do not collect. This policy explains our practices clearly.</p>
+				</div>
 
-			<section>
-				<h2>data we do not collect</h2>
-				<p>We do not collect, log, store, or sell:</p>
-				<ul>
-					<li>Your browsing history or the sites you visit through the proxy</li>
-					<li>Personal information such as your name, email, or IP address</li>
-					<li>Cookies or session data from proxied sites</li>
-					<li>Any form of usage analytics tied to your identity</li>
-				</ul>
-			</section>
+				<div class="privacy-section">
+					<h2>data we do not collect</h2>
+					<p>We do not collect, log, store, or sell:</p>
+					<ul>
+						<li>Your browsing history or the sites you visit through the proxy</li>
+						<li>Personal information such as your name, email, or IP address</li>
+						<li>Cookies or session data from proxied sites</li>
+						<li>Any form of usage analytics tied to your identity</li>
+					</ul>
+				</div>
 
-			<section>
-				<h2>how the proxy works</h2>
-				<p>Traffic routed through Solo Central passes through our servers solely to facilitate access. We do not inspect, log, or retain the content of your requests. Proxied traffic is not associated with any user account or identifier.</p>
-			</section>
+				<div class="privacy-section">
+					<h2>how the proxy works</h2>
+					<p>Traffic routed through Solo Central passes through our servers solely to facilitate access using the Scramjet / BareMux / Wisp proxy stack. We do not inspect, log, or retain the content of your requests. Proxied traffic is not associated with any user account or identifier.</p>
+				</div>
 
-			<section>
-				<h2>third-party services</h2>
-				<p>Solo Central uses the following third-party services which may have their own privacy practices:</p>
-				<ul>
-					<li><strong>particles.js</strong> — loaded from jsDelivr CDN for the particles background</li>
-					<li><strong>Google Fonts</strong> — loaded for typography (Inter font)</li>
-					<li><strong>open-meteo.com</strong> — used on the home page for weather data if you grant location permission; your coordinates are sent directly to their API and not stored by us</li>
-				</ul>
-			</section>
+				<div class="privacy-section">
+					<h2>local storage</h2>
+					<p>Solo Central stores the following data locally in your browser — it never leaves your device:</p>
+					<ul>
+						<li><strong>sc-theme</strong> — your selected color theme</li>
+						<li><strong>sc-cloak-title</strong> — custom tab title set via the Tab Cloak feature</li>
+						<li><strong>sc-cloak-favicon</strong> — custom tab favicon set via the Tab Cloak feature</li>
+					</ul>
+					<p>This data is only used to restore your preferences on the next visit. It is not sent to any server.</p>
+				</div>
 
-			<section>
-				<h2>geolocation</h2>
-				<p>The home page may request your browser's geolocation to display local weather. This permission is optional, requested by the browser, and your location is never sent to our servers — it goes directly to the open-meteo weather API.</p>
-			</section>
+				<div class="privacy-section">
+					<h2>tab cloaker</h2>
+					<p>The Tab Cloak feature lets you change the visible tab title and favicon in your browser to help blend in. This change is purely cosmetic and local — it only modifies what you see in your own browser tab. No data is sent to any server as a result of using this feature.</p>
+				</div>
 
-			<section>
-				<h2>cookies</h2>
-				<p>Solo Central does not use cookies for tracking. Any cookies set during a proxied session belong to the destination site and are handled within the proxy context.</p>
-			</section>
+				<div class="privacy-section">
+					<h2>third-party services</h2>
+					<p>Solo Central uses the following third-party services which may have their own privacy practices:</p>
+					<ul>
+						<li><strong>Google Analytics</strong> — collects anonymous usage statistics (page views, sessions). Processed by Google per their privacy policy.</li>
+						<li><strong>Google AdSense</strong> — displays ads on the home page. Google may use cookies to serve personalized ads based on your browsing.</li>
+						<li><strong>Google Fonts</strong> — loads the Inter and Quicksand typefaces. Your IP may be logged by Google's CDN.</li>
+						<li><strong>Google Favicon API</strong> — fetches site favicons to display inside browser tabs in the proxy shell.</li>
+						<li><strong>jsDelivr CDN</strong> — loads particles.js. Your IP may be logged by jsDelivr.</li>
+						<li><strong>open-meteo.com</strong> — used on the home page for weather data if you grant location permission. Your coordinates go directly to their API and are not stored by us.</li>
+					</ul>
+				</div>
 
-			<section>
-				<h2>changes to this policy</h2>
-				<p>We may update this privacy policy occasionally. Changes will be reflected by updating the date at the top of this page.</p>
-			</section>
+				<div class="privacy-section">
+					<h2>geolocation</h2>
+					<p>The home page may request your browser's geolocation to display local weather. This permission is optional and requested by the browser. Your location is never sent to our servers — it goes directly to the open-meteo weather API.</p>
+				</div>
 
-			<section>
-				<h2>contact</h2>
-				<p>Questions about this policy can be directed to the project via <a href="mailto:dmca@solocentral.org" style="color:#1a56db;text-decoration:none;" onclick="event.stopPropagation()">Email</a>.</p>
-			</section>
+				<div class="privacy-section">
+					<h2>cookies</h2>
+					<p>Solo Central does not use cookies for tracking. Google AdSense may set cookies for ad personalization. Any cookies set during a proxied session belong to the destination site and are handled within the proxy context.</p>
+				</div>
+
+				<div class="privacy-section">
+					<h2>changes to this policy</h2>
+					<p>We may update this privacy policy occasionally. Changes will be reflected by updating the date at the top of this page.</p>
+				</div>
+
+				<div class="privacy-section">
+					<h2>contact</h2>
+					<p>Questions about this policy can be directed via <a href="mailto:help@solocentral.org" onclick="event.stopPropagation()">Email</a>.</p>
+				</div>
+
+			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 		<script src="scparticles.js"></script>
