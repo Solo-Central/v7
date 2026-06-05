@@ -23,18 +23,28 @@
 				inset: 0;
 				z-index: 0;
 			}
-			.banner {
+			.hero {
 				position: relative;
 				z-index: 1;
 				flex-shrink: 0;
-			}
-			.banner img {
-				height: auto;
-				display: block;
-				pointer-events: none;
+				text-align: center;
 				user-select: none;
-				max-width: 400px;
 			}
+			.hero h1 {
+				color: #f9f9fa;
+				font-size: 3.5rem;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+			}
+			.subtitle {
+				color: #b1b1b3;
+				font-size: 1rem;
+				font-weight: 300;
+				margin-top: 0.6rem;
+				min-height: 1.5em;
+				transition: opacity 0.3s ease;
+			}
+			.subtitle.fade { opacity: 0; }
 			.ad-side {
 				position: fixed;
 				top: 50%;
@@ -66,8 +76,9 @@
 			<script>atOptions={'key':'7ad5e09cb640f0a2685552f84441122a','format':'iframe','height':600,'width':160,'params':{}};</script>
 			<script src="https://throbbingimmensely.com/7ad5e09cb640f0a2685552f84441122a/invoke.js"></script>
 		</div>
-		<div class="banner">
-			<img src="/stuff/logo-text.png" alt="" />
+		<div class="hero">
+			<h1>Welcome to Solo Central</h1>
+			<p class="subtitle" id="subtitle"></p>
 		</div>
 		<div class="ad-side right">
 			<script>atOptions={'key':'7ad5e09cb640f0a2685552f84441122a','format':'iframe','height':600,'width':160,'params':{}};</script>
@@ -78,6 +89,7 @@
 			<span class="bullet">•</span>
 			<span id="temp">--</span>
 		</div>
+		<script src="textthingys.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 		<script src="scparticles.js"></script>
 		<script>
@@ -100,7 +112,19 @@
 				})
 				.catch(function () {});
 
-			window.parent.postMessage({ type: 'title', value: 'solo central v7' }, '*');
+			const el = document.getElementById('subtitle');
+			let idx = 0;
+			el.textContent = headings[0];
+			setInterval(function () {
+				el.classList.add('fade');
+				setTimeout(function () {
+					idx = (idx + 1) % headings.length;
+					el.textContent = headings[idx];
+					el.classList.remove('fade');
+				}, 300);
+			}, 5000);
+
+window.parent.postMessage({ type: 'title', value: 'solo central v7' }, '*');
 		})();
 		</script>
 	</body>

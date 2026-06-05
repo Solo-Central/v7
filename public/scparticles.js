@@ -33,10 +33,10 @@
 				number: { value: 80, density: { enable: true, value_area: 800 } },
 				color: { value: color },
 				shape: { type: 'circle', stroke: { width: 0, color: '#000000' }, polygon: { nb_sides: 5 } },
-				opacity: { value: 0.6, random: false, anim: { enable: false, speed: 0.49, opacity_min: 0.1, sync: false } },
-				size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+				opacity: { value: 0.6, random: false, anim: { enable: false, speed: 3, opacity_min: 0.1, sync: false } },
+				size: { value: 3, random: true, anim: { enable: false, speed: 100, size_min: 0.1, sync: false } },
 				line_linked: { enable: false },
-				move: { enable: true, speed: 6, direction: 'bottom-right', random: false, straight: false, out_mode: 'out', bounce: false },
+				move: { enable: true, speed: 6, direction: 'bottom', random: false, straight: false, out_mode: 'out', bounce: false },
 			},
 			interactivity: {
 				detect_on: 'canvas',
