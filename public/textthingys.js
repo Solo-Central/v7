@@ -1,6 +1,4 @@
 const headings = [
-    "fanq stop breaching my vps",
-    "dom dom dom sahuuuuurrrr",
     "'francc stop lyin you aint 22' actual peak tag",
     "discord.gg/mUKy3wrMcp",
     "certain tax provisions",
@@ -8,8 +6,22 @@ const headings = [
     "solo central on top",
     "follow me on tiktok @qatual",
     "hello probably",
-    "my birthday is may 23rd :)",
     "tung tung tung sahur",
     "myles is 110% a femboy",
-    "booyah!"
+    "booyah!",
+    "avril is gen the goat",
+    "jayden galipo fan club!",
+    "seal's have horrendous opsec",
+    "'But who is God?' - co09 ref",
+    "sudo apt install opsec",
+    "endis.my is #1 mc server oat",
+    "ummmmmmmmm well you shouldnt say that",
+    "big big guy",
+    "shoutout zinko",
+    "abc123",
+    "how did avril get JAYDEN GALIPO'S PAYPAL linked to my alt dsc account bro 😭",
+    "lazerdim700 my fav rapper oat",
+    "skibidi centralings",
+    "this kid frogiee1 said 't' im crine, who do you think you are?",
+    "You see my bill? It says 5,434.56. There's no mistake. That's the amount. No, but I only use an electric blanket. The only mistake is that it is two weeks overdue and hasn't been paid. But it is my birthday. It doesn't matter. How would you like to pay? Do you think I am stupid enough to pay a $10,000 electricity bill? Unfortunately, you have no choice. You have to pay it. And what if I do not? Your electricity will be cut off. You will cut my electricity? Yes. You do not give me electricity. Only God give electricity."
 ];
