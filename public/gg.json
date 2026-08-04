@@ -24,6 +24,8 @@
   { "url": "/gxmez/brawlstars.html", "img": "/books/brawlstars.webp", "alt": "brawl stars", "desc": "fast multiplayer brawler" },
   { "url": "/gsrc/breakingthebank/index.html", "img": "/books/btb.webp", "alt": "breaking the bank", "desc": "rob the bank, don't get caught" },
   { "url": "/gxmez/buckshot.html", "img": "/books/buckshot.webp", "alt": "buckshot roulette", "desc": "horror roulette with a shotgun" },
+  { "url": "/gsrc/09/index.html", "img": "/books/09.jpg", "alt": "Class of '09", "desc": "its not a dating sim, its a rejection sim" },
+  { "url": "/gsrc/09ru/index.html", "img": "/books/09ru.jpg", "alt": "Class of '09: The Re-Up", "desc": "its not a dating sim, its a rejection sim | but the re-up" },
   { "url": "/gsrc/celeste/index.html", "img": "/books/celeste.webp", "alt": "celeste", "desc": "climb a mountain, die a lot" },
   { "url": "/gsrc/chess/index.html", "img": "/books/chess.webp", "alt": "chess", "desc": "classic strategy board game" },
   { "url": "/gsrc/dino/index.html", "img": "/books/dino.webp", "alt": "chrome dino", "desc": "jump over cacti in the desert" },
