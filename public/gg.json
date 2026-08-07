@@ -34,6 +34,7 @@
   { "url": "/gsrc/crossyroad/index.html", "img": "/books/crossy.webp", "alt": "crossy road", "desc": "hop across roads and rivers" },
   { "url": "/gsrc/csgoclicker/index.html", "img": "/books/csgo-clicker.webp", "alt": "csgo clicker", "desc": "click to open cases" },
   { "url": "/gsrc/cuttherope/index.html", "img": "/books/ctr.webp", "alt": "cut the rope", "desc": "feed candy to the little monster" },
+  { "url": "/gsrc/ddlc/index.html", "img": "/books/ddlc.jpg", "alt": "Doki Doki Literature Club", "desc": "i genuinely dont know how to describe ts but its fun" },
   { "url": "/emulatorjs/dk64/index.html", "img": "/books/dk64.webp", "alt": "donkey kong 64", "desc": "N64 collectathon with DK" },
   { "url": "/emulatorjs/dkc/index.html", "img": "/books/dkc.jpg", "alt": "donkey kong country", "desc": "SNES platformer with barrels" },
   { "url": "/gsrc/death-run-3d/index.html", "img": "/books/dr3d.webp", "alt": "death run 3d", "desc": "dodge obstacles in a 3D tunnel" },
