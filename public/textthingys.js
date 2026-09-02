@@ -23,5 +23,6 @@ const headings = [
     "lazerdim700 my fav rapper oat",
     "skibidi centralings",
     "this kid frogiee1 said 't' im crine, who do you think you are?",
-    "You see my bill? It says 5,434.56. There's no mistake. That's the amount. No, but I only use an electric blanket. The only mistake is that it is two weeks overdue and hasn't been paid. But it is my birthday. It doesn't matter. How would you like to pay? Do you think I am stupid enough to pay a $10,000 electricity bill? Unfortunately, you have no choice. You have to pay it. And what if I do not? Your electricity will be cut off. You will cut my electricity? Yes. You do not give me electricity. Only God give electricity."
+    "You see my bill? It says 5,434.56. There's no mistake. That's the amount. No, but I only use an electric blanket. The only mistake is that it is two weeks overdue and hasn't been paid. But it is my birthday. It doesn't matter. How would you like to pay? Do you think I am stupid enough to pay a $10,000 electricity bill? Unfortunately, you have no choice. You have to pay it. And what if I do not? Your electricity will be cut off. You will cut my electricity? Yes. You do not give me electricity. Only God give electricity.",
+    "'POTATO POTATO' - greyson 2026"
 ];
